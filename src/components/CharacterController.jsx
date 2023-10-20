@@ -138,7 +138,9 @@ export const CharacterController = ({
   const directionalLight = useRef();
 
   useEffect(() => {
-    directionalLight.current.target = character.current;
+    if (character.current && userPlayer) {
+      directionalLight.current.target = character.current;
+    }
   }, [character.current]);
 
   return (
